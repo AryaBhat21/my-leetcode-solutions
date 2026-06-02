@@ -6,13 +6,15 @@ class Solution(object):
         """
     
         count = 0
-        maj = 0
-    
-        uni = list(dict.fromkeys(nums))
-        for i in uni:
-            if nums.count(i)>count:
-                count = nums.count(i)
+        maj = None
+
+        for i in nums:
+            if count == 0:
                 maj = i
+            if i == maj:
+                count+=1
+            else:
+                count -=1
 
         return maj
 
