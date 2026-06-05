@@ -5,14 +5,11 @@ class Solution(object):
         :rtype: str
         """
         st = []
-        for i in s:
-            if i=="*":
-                if not st:
-                    break
-                else:
+        for ch in s:
+            if st and ch=="*":
                     st.pop()
             else:
-                st.append(i)
+                st.append(ch)
 
         return "".join(st)
 
