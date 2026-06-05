@@ -1,9 +1,5 @@
-class Solution(object):
-    def evalRPN(self, tokens):
-        """
-        :type tokens: List[str]
-        :rtype: int
-        """
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
         st = []
         for i in tokens:
             if i not in "+-*/":
@@ -18,7 +14,7 @@ class Solution(object):
                 elif i == "*":
                     st.append(a*b)
                 elif i == "/":
-                    st.append(int(float(a)/b))
+                    st.append(int(a/b))
         
         return st[0]
-            
+        
