@@ -1,4 +1,7 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
-        return int(x**0.5)
+        i = 1
+        while i*i<=x:
+            i+=1
+        return i-1
         
