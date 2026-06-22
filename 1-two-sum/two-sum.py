@@ -1,17 +1,10 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        
-        d = {}
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
-            num = nums[i]
-            comp = target - num
+            for j in range(i+1,len(nums)):
 
-            if comp in d:
-                return [d[comp],i]
+                if nums[i]+nums[j]==target:
+                    return [i,j]
 
-            d[num] = i
+                
+        
