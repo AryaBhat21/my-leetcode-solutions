@@ -1,20 +1,18 @@
-class Solution(object):
-    def majorityElement(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-    
-        count = 0
-        maj = None
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        n_2 = len(nums)//2
+        
+        freq = {}
 
         for i in nums:
-            if count == 0:
+            freq[i] = freq.get(i,0)+1
+
+        maj = 0
+
+        for i in freq:
+            if freq[i]>n_2 and freq[i]>maj:
                 maj = i
-            if i == maj:
-                count+=1
-            else:
-                count -=1
 
         return maj
 
+        
