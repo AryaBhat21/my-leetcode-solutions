@@ -3,17 +3,14 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        low = 0
-        high = len(nums)-1
-        mid = 0
+        cnt0 = nums.count(0)
+        cnt1 = nums.count(1)
+        cnt2 = nums.count(2)
 
-        while mid<=high:
-            if nums[mid]==0:
-                nums[low],nums[mid]=nums[mid],nums[low]
-                mid+=1
-                low+=1
-            elif nums[mid]==2:
-                nums[high],nums[mid]=nums[mid],nums[high]
-                high -= 1
-            else:
-                mid+=1
+        for i in range(cnt0):
+            nums[i]=0
+        for i in range(cnt0, cnt0+cnt1):
+            nums[i]=1
+        for i in range(cnt1+cnt0, len(nums)):
+            nums[i]=2
+
