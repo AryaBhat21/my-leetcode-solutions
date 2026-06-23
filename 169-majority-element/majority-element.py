@@ -1,18 +1,20 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        n_2 = len(nums)//2
-        
-        freq = {}
+        count = 0
+        ele = None
 
         for i in nums:
-            freq[i] = freq.get(i,0)+1
+            if count == 0:
+                ele = i
+                count += 1
+            elif i==ele:
+                count+=1 
+            else:
+                count-=1 
+        
+        if nums.count(ele)>(len(nums)//2):
+            return ele
 
-        maj = 0
-
-        for i in freq:
-            if freq[i]>n_2 and freq[i]>maj:
-                maj = i
-
-        return maj
+        return -1
 
         
