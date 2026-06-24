@@ -1,21 +1,11 @@
-class Solution(object):
-    def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
-        # profit = sp - bp
-        #greedy algo
-        max_profit = 0
-        min_buy_price = prices[0]
-        for i in range(1,len(prices)):
-            if prices[i]<min_buy_price:
-                min_buy_price = prices[i]
-            
-            elif prices[i] - min_buy_price > max_profit:
-                max_profit = prices[i]-min_buy_price
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        maxProfit = 0
+        mini = prices[0]
 
-        return max_profit
+        for i in prices:
+            cost = i - mini
+            maxProfit = max(maxProfit, cost)
+            mini = min(mini, i)
 
-            
-
+        return maxProfit
