@@ -6,6 +6,8 @@ def sum_d(arr:List[int], d:int)->int:
 
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        if len(nums)>threshold:
+            return -1
         low = 1
         high = max(nums)
         while low<=high:
