@@ -20,11 +20,9 @@ class Solution:
             return -1
         low = min(bloomDay)
         high = max(bloomDay)
-        ans=-1
         while low<=high:
             mid = (low+high)//2
             if posDays(bloomDay,mid,m,k):
-                ans = mid
                 high = mid-1
             else:
                 low = mid+1
