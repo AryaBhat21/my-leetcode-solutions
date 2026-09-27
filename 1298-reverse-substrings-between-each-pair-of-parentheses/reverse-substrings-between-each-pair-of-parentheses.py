@@ -1,6 +1,5 @@
 class Solution:
     def reverseParentheses(self, s: str) -> str:
-        
         st = []
 
         for ch in s:
@@ -14,6 +13,3 @@ class Solution:
                 st.append(ch)
 
         return "".join(st)
-
-
-        
