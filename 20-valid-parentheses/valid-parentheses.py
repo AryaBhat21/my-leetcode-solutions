@@ -1,26 +1,19 @@
-class Solution(object):
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
+class Solution:
+    def isValid(self, s: str) -> bool:
+        close_to_open = { ')':'(', '}':'{',']':'['}
         st = []
 
-        for i in s:
-            if i=="(":
-                st.append(")")
-            elif i=="{":
-                st.append("}")
-            elif i=="[":
-                st.append("]")
-            elif len(st)==0 or st[-1]!=i:
-                return False
-            else:
-                st.pop() 
-       
-        return len(st)==0
+        if len(s)<2:
+            return False
 
-            
-            
-            
+        for ch in s:
+            if ch in close_to_open:
+                if not st or st[-1]!=close_to_open[ch]:
+                    return False
+                st.pop()
+            else:
+                st.append(ch)
         
+        if st:
+            return False
+        return True
